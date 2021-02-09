@@ -8,7 +8,6 @@ In times like these having a structure to your life really matters. Ticking off 
 ## What's ahead
 
 ### Frontend
-- [ ] Set up AngularFire
 - [ ] Set up sign-in with Google & GitHub
 
 ### Structures
@@ -19,4 +18,5 @@ In times like these having a structure to your life really matters. Ticking off 
 ### Done
 - [x] Set up Firebase, Firebase-Auth and Firestore
 - [x] Set up initial project in Angular
+- [x] Set up AngularFire
 - [x] Pushing straight to master 'coz I can 😎

@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "mal-fi": {
+      "hosting": {
+        "malfi": [
+          "mal-fi"
+        ]
+      }
+    }
+  }
+}
