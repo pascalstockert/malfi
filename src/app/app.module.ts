@@ -3,14 +3,16 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { AngularFireModule } from "@angular/fire";
 import { environment } from "../environments/environment";
+import { LoginComponent } from './components/login/login.component';
+import { LandingPageComponent } from './pages/landing-page/landing-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginPageComponent
+    LoginComponent,
+    LandingPageComponent
   ],
   imports: [
     BrowserModule,

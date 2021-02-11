@@ -9,14 +9,7 @@ import firebase from "firebase";
 })
 export class AppComponent {
 
-  constructor( public auth: AngularFireAuth ) {
+  constructor() {
   }
-  login() {
-    console.log('Logging in...');
-    this.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then( () => { console.log('Logged in!') } );
-  }
-  logout() {
-    console.log('Logging out...');
-    this.auth.signOut().then( () => { console.log('Logged out!') } );
-  }
+
 }
