@@ -1,1 +1,19 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  margin: 0;
+  font-family: "JetBrains Mono", sans-serif;
+}
+
+.space-10 {
+  > *:not( :last-child ) {
+    margin-right: 10px;
+  }
+}
+.flow-row {
+  display: flex;
+  flex-flow: row;
+}
+.flex-grow {
+  flex-grow: 1;
+}
+
+
