@@ -1,0 +1,7 @@
+<div class="button" [class.rounded]="rounded"
+     [style]="{ 'backgroundColor': baseColor, 'color': textColor, 'fontWeight': fontWeight, 'border': border }">
+  <ng-container *ngIf="icon">
+    <fa-icon [icon]="icon" [style]="{ 'color': iconColor, 'marginRight': '10px' }"></fa-icon>
+  </ng-container>
+  <span>{{ text }}</span>
+</div>
