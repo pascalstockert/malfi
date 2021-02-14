@@ -1,8 +1,9 @@
 export const colors = {
-  coral: '#fe8d8f',
-  orange: '#ff9469',
-  yellow: '#fee074',
-  green: '#00a08f',
-  grey: '#5b84b1',
-  dimWhite: '#f6f6f6'
+  gradientEnd: '#10938B',
+  gradientStart: '#6BE585',
+  red: '#F03A47',
+  yellow: '#F2A541',
+  green: '#0CCE6B',
+  light: '#f6f6f6',
+  dark: '#262626'
 }

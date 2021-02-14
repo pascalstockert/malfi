@@ -1,13 +1,14 @@
-<div *ngIf="auth.user | async as user; else showLogin">
+<div *ngIf="auth.user | async as user; else showLogin" class="flow-row">
+  <span class="align-self-center mr-20">Hello {{ user.displayName }}!</span>
   <app-button (click)="logout()"
               baseColor="transparent"
-              [textColor]="colors.dimWhite"
               fontWeight="normal"
-              text="Sign Out"
-              [border]="'1px solid ' + colors.dimWhite"></app-button>
+              [textColor]="colors.gradientEnd"
+              [border]="'1px solid ' + colors.gradientEnd"
+              text="Sign Out"></app-button>
 </div>
 <ng-template #showLogin>
-  <div class="flow-row space-10">
+  <div class="flow-row space-children-10">
     <app-button [icon]="iconGoogle"
                 [rounded]="true"
                 (click)="loginGoogle()"

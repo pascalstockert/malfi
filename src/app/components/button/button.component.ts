@@ -12,15 +12,15 @@ export class ButtonComponent implements OnInit {
   @Output() click = new EventEmitter<MouseEvent>();
 
   @Input() rounded = false;
-  @Input() baseColor = colors.coral;
+  @Input() baseColor = colors.light;
 
   @Input() border = 'none';
 
-  @Input() textColor = colors.grey;
+  @Input() textColor = colors.dark;
   @Input() fontWeight = 'bold';
 
   @Input() icon: IconProp;
-  @Input() iconColor = colors.grey;
+  @Input() iconColor = colors.dark;
   @Input() text = 'Click';
 
   constructor() { }
