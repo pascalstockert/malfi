@@ -1,1 +1,41 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  margin: 0;
+  font-family: "Cousine", sans-serif;
+}
+
+h1, h2 {
+  font-family: "JetBrains Mono", monospace;
+  font-weight: bold;
+}
+h3, h4 {
+  font-family: "Quicksand", "Arial Rounded MT Bold", sans-serif;
+  font-weight: bold;
+}
+
+.flow-row {
+  display: flex;
+  flex-flow: row;
+}
+.flex-grow {
+  flex-grow: 1;
+}
+.align-self-center {
+  align-self: center;
+}
+
+.mr-10 {
+  margin-right: 10px;
+}
+.mr-20 {
+  margin-right: 20px;
+}
+.space-children-10 {
+  > *:not( :last-child ) {
+    margin-right: 10px;
+  }
+}
+.gradient-text {
+  background-image: linear-gradient(to left top, #10938b, #04a891, #22bd92, #45d18e, #6be585);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

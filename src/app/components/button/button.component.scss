@@ -1,0 +1,10 @@
+.button {
+  padding: 5px 10px;
+  box-sizing: border-box;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  &.rounded {
+    border-radius: 100px;
+  }
+}

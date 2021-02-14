@@ -8,8 +8,7 @@ In times like these having a structure to your life really matters. Ticking off 
 ## What's ahead
 
 ### Frontend
-- [ ] Set up AngularFire
-- [ ] Set up sign-in with Google & GitHub
+- [ ] Add error-popup whenever a user is logging in with the same email but a different provider
 
 ### Structures
 - [ ] Structure of lists and nodes
@@ -19,4 +18,6 @@ In times like these having a structure to your life really matters. Ticking off 
 ### Done
 - [x] Set up Firebase, Firebase-Auth and Firestore
 - [x] Set up initial project in Angular
+- [x] Set up AngularFire
+- [x] Set up sign-in with Google & GitHub
 - [x] Pushing straight to master 'coz I can 😎
