@@ -8,12 +8,17 @@ In times like these having a structure to your life really matters. Ticking off 
 ## What's ahead
 
 ### Frontend
-- [ ] Add error-popup whenever a user is logging in with the same email but a different provider
+- [ ] Add list service
+    - [ ] Implement Nodes
+    - [ ] Implement List
 
 ### Structures
 - [ ] Structure of lists and nodes
 - [ ] Concept of saving and editing
 - [ ] Concept of sharing
+
+### Bugs
+- [ ] Add error-popup whenever a user is logging in with the same email but a different provider
 
 ### Done
 - [x] Set up Firebase, Firebase-Auth and Firestore
