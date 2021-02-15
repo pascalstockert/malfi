@@ -6,19 +6,37 @@ interface NodeParameters {
 
 class Node {
 
-  text: string;
+  text: string | undefined = undefined;
+  previous: Node | undefined = undefined;
+  next: Node | undefined = undefined;
+  child: Node | undefined = undefined;
 
-  constructor( parameters: Partial<NodeParameters> ) {
+  constructor( parameters?: Partial<NodeParameters> ) {
+    if ( !parameters ) return;
+
     Object.keys( parameters ).forEach( key => {
       this[ key ] = parameters[ key ];
     } )
+  }
+
+  setPrevious( node: Node ): Node {
+    this.previous = node;
+    node.next = this;
+    return node;
+  }
+
+  setNext( node: Node ): Node {
+    this.next = node;
+    node.previous = this;
+    return node;
   }
 
 }
 
 class List {
 
-  list: Node[];
+  head: Node = undefined;
+  list: Node[] = undefined;
 
   constructor( pre?: Node[] ) {
     this.init( pre )
@@ -30,6 +48,15 @@ class List {
       return;
     }
     this.list = [ new Node( { text: 'Try writing something!' } ) ];
+  }
+
+  append( node: Node ): Node {
+    const previousNode = this.list[ this.list.length - 1 ];
+    previousNode.setNext( node );
+    node.setPrevious( previousNode );
+    this.list.push( node );
+    this.head = node;
+    return node;
   }
 
 }
@@ -45,7 +72,10 @@ export class ListService {
 
   init( pre?: Node[] ): void {
     const list = new List( pre );
-    console.log( list )
+    console.log( list );
+    const newNode = new Node();
+    list.append( newNode );
+    console.log( list );
   }
 
 }
