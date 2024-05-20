@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: normal;
+    src: url(/assets/fonts/nunito-var.ttf) format('truetype');
+  }
+  @font-face {
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: normal;
+    src: url(/assets/fonts/raleway-var.ttf) format('truetype');
+  }
+  @font-face {
+    font-family: Raleway;
+    font-style: italic;
+    font-weight: normal;
+    src: url(/assets/fonts/raleway-ital-var.ttf) format('truetype');
+  }
+
+  h1, h2, h3 {
+    @apply font-heading;
+  }
+  h1 {
+    @apply text-[2.125rem] mb-8 font-semibold;
+  }
+  h2 {
+    @apply text-[1.875rem] mb-6 font-medium;
+  }
+  h3 {
+    @apply text-[1.5rem] mb-3;
+  }
+
+  body {
+    @apply font-text text-[1rem] bg-light-500;
+  }
+}
+
+
