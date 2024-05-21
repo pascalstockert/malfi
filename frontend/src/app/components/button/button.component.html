@@ -1,0 +1,10 @@
+<div
+  class="button-{{type}} relative flex justify-center items-center w-full p-2.5 rounded-lg cursor-pointer"
+>
+  <ng-content></ng-content>
+  <i-tabler
+    *ngIf="icon"
+    [name]="icon"
+    class="ml-2"
+  ></i-tabler>
+</div>

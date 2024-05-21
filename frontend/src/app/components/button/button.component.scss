@@ -1,0 +1,20 @@
+.button-primary {
+  background-color: #77DD77;
+  color: #F6F6F6;
+  font-weight: 600;
+}
+
+.button-passive {
+  border: 1px solid #262626;
+}
+
+.button-destructive {
+  background-color: #FF6961;
+  color: #F6F6F6;
+  font-weight: 600;
+}
+
+.button-disabled {
+  background-color: #E0E0E0;
+  color: color-mix(in srgb, #262626 50%, transparent);
+}
