@@ -1,5 +1,5 @@
 <div
-  class="relative"
+  class="relative max-w-[512px] mx-auto"
 >
   <div
     class="flex justify-center items-center sticky top-0 w-full h-[84px] bg-light-500 shadow-lg z-10"
@@ -11,9 +11,14 @@
     </h1>
   </div>
 
-  <div class="pt-4 px-4">
-    <router-outlet class="z-0"></router-outlet>
+  <div>
+    <ng-content></ng-content>
   </div>
 
+  <div
+    class="fixed bottom-0 w-full max-w-[512px]"
+  >
+    <ng-content select="[screenEnd]"></ng-content>
+  </div>
   <!-- Sticky Bottom Nav if logged in -->
 </div>

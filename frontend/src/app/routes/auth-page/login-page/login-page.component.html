@@ -1,8 +1,24 @@
-<h1>login-page works!</h1>
-<h2>login-page works!</h2>
-<h3>login-page works!</h3>
-<p>This is a paragraph</p>
-<app-button type="primary" icon="brand-google">Weiter mit Google</app-button>
-<app-button type="passive">Weiter mit Google</app-button>
-<app-button type="disabled">Weiter mit Google</app-button>
-<app-button type="destructive">Weiter mit Google</app-button>
+<app-page-layout>
+  <img
+    alt="placeholder"
+    src="https://placehold.co/400x600"
+    class="w-full h-auto object-cover mt-4 px-4"
+  />
+
+  <div
+    ngProjectAs="[screenEnd]"
+    class="w-full px-4 pb-8"
+  >
+    <hr
+      class="w-full max-w-64 mx-auto mb-8 px-9 text-light-100"
+    />
+
+    <app-button
+      (click)="loginWithGoogle()"
+      type="primary"
+      icon="brand-google"
+    >
+      Weiter mit Google
+    </app-button>
+  </div>
+</app-page-layout>
