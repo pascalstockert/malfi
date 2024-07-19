@@ -1,0 +1,37 @@
+<app-page-layout>
+  <div class="px-4 py-8">
+    <h3>Define new goal</h3>
+
+    <form
+      [formGroup]="formGroup"
+      class="flex flex-col gap-4 w-full"
+    >
+      <label>Title
+        <input
+          formControlName="title"
+          type="text"
+          placeholder="Title of the goal"
+          class="block"
+        >
+      </label>
+
+      <label>Description
+        <input
+          formControlName="description"
+          type="text"
+          placeholder="More information regarding the goal"
+          class="block"
+        >
+      </label>
+
+      <label>Deadline
+        <input
+          formControlName="deadline"
+          type="date"
+          placeholder="20.09.1998"
+          class="block"
+        >
+      </label>
+    </form>
+  </div>
+</app-page-layout>

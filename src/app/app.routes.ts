@@ -1,10 +1,11 @@
 import { Routes } from '@angular/router';
 import { AuthPageComponent } from './routes/auth-page/auth-page.component';
-import { RegisterPageComponent } from './routes/auth-page/register-page/register-page.component';
 import { LoginPageComponent } from './routes/auth-page/login-page/login-page.component';
 import { TaskPageComponent } from './routes/task-page/task-page.component';
 import { LoggedOutGuard } from './guards/logged-out/logged-out.guard';
 import { LoggedInGuard } from './guards/logged-in/logged-in.guard';
+import { CreateTaskPageComponent } from './routes/task-page/create-task-page/create-task-page.component';
+import { TaskPageRouterComponent } from './routes/task-page/task-page-router/task-page-router.component';
 
 export const routes: Routes = [
   {
@@ -19,19 +20,27 @@ export const routes: Routes = [
     canActivate: [LoggedOutGuard],
     children: [
       {
-        path: 'register',
-        component: RegisterPageComponent,
-      },
-      {
         path: 'login',
         component: LoginPageComponent,
       },
     ],
   },
   {
-    title: 'Task',
     path: 'task',
-    component: TaskPageComponent,
+    component: TaskPageRouterComponent,
     canActivate: [LoggedInGuard],
+    children: [
+      {
+        title: 'Tasks',
+        path: '',
+        pathMatch: 'full',
+        component: TaskPageComponent,
+      },
+      {
+        title: 'Tasks | Create',
+        path: 'create',
+        component: CreateTaskPageComponent,
+      }
+    ]
   }
 ];
