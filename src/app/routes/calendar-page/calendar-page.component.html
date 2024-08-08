@@ -1,0 +1,79 @@
+<app-page-layout>
+  <mwl-calendar-week-view
+    [headerTemplate]="headerTemplate"
+    [viewDate]="viewDate"
+    [events]="events"
+    [weekStartsOn]="1"
+  ></mwl-calendar-week-view>
+
+  <div class="w-full h-16"></div>
+
+  <ng-container
+    ngProjectAs="[screenEnd]"
+  >
+    <div class="flex w-full justify-center">
+      <div class="flex gap-2 mb-4 p-2 border border-light-400 rounded-xl bg-light-500 shadow-lg">
+        <app-button
+          mwlCalendarPreviousView
+          [view]="view"
+          [(viewDate)]="viewDate"
+          type="primary"
+          class="w-16"
+        >
+          <i-tabler
+            name="calendar-up"
+          ></i-tabler>
+        </app-button>
+
+        <app-button
+          mwlCalendarToday
+          [(viewDate)]="viewDate"
+          type="primary"
+          class="w-16"
+        >
+          <i-tabler
+            name="calendar-due"
+          ></i-tabler>
+        </app-button>
+
+        <app-button
+          mwlCalendarNextView
+          [view]="view"
+          [(viewDate)]="viewDate"
+          type="primary"
+          class="w-16"
+        >
+          <i-tabler
+            name="calendar-down"
+          ></i-tabler>
+        </app-button>
+      </div>
+    </div>
+
+    <app-navigation></app-navigation>
+  </ng-container>
+</app-page-layout>
+
+<ng-template
+  #headerTemplate
+  let-days="days"
+>
+  <div class="w-full h-[60px]"></div>
+  <div
+    class="fixed top-[84px] flex w-full max-w-[512px] h-[60px] pl-[70px] border border-light-400 bg-light-500 z-10"
+  >
+    <div
+      *ngFor="let day of days; index as i"
+      [class.bg-primary-900]="day.isToday"
+      class="flex-1 p-1 border-l border-light-400 text-center"
+    >
+      <div class="day-label text-uppercase">
+        {{ day.date | date:'LLL' }}
+      </div>
+
+      <div class="day-number">
+        {{ day.date | date:'dd' }}
+      </div>
+    </div>
+  </div>
+</ng-template>

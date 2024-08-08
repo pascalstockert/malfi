@@ -6,7 +6,11 @@ import { PageLayoutComponent } from './components/page-layout/page-layout.compon
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [ CommonModule, RouterOutlet, PageLayoutComponent ],
+  imports: [
+    CommonModule,
+    RouterOutlet,
+    PageLayoutComponent,
+  ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })

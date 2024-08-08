@@ -39,9 +39,13 @@
     @apply font-text text-[1rem] bg-light-500;
   }
 
-  input[type=text], input[type=date] {
-    @apply w-full px-3 py-2 rounded-xl border border-b-dark-500 bg-light-500;
+  input, select {
+    @apply w-full px-3 py-2 rounded-xl border border-dark-500 bg-light-500;
     outline-color: #77DD77;
+  }
+
+  input[type=checkbox] {
+    width: initial;
   }
 }
 

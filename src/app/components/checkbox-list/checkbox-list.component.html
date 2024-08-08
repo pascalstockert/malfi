@@ -1,0 +1,43 @@
+<form
+  [formGroup]="formGroup"
+  class="flex flex-col"
+>
+  <div
+    *ngFor="let control of getNamedControlsAsArray(); index as i; trackBy: trackByName"
+    [ngClass]="{
+      'rounded-t-xl': i === 0,
+      'rounded-b-xl': i === controlAmount - 1 || controlAmount === 0,
+      '-mt-px': i > 0,
+    }"
+    class="flex w-full px-3 border border-dark-500"
+  >
+    <input
+      [disabled]="!enableCheckbox || readonly"
+      [readonly]="readonly"
+      type="checkbox"
+    >
+
+    <input
+      [id]="control.name"
+      [formControl]="formGroup.controls[control.name]"
+      [readonly]="readonly"
+      (keydown)="handleInput(control.name, $event)"
+      type="text"
+      placeholder="New subtask"
+      style="background: transparent"
+    >
+  </div>
+
+  <div
+    *ngIf="!readonly"
+    class="flex justify-center mt-2"
+  >
+    <div
+      class="flex justify-center items-center w-6 h-6 rounded-lg bg-primary-500 shadow-xl cursor-pointer"
+      (click)="addInput('', true)"
+    >
+      <img alt="plus icon" ngSrc="/assets/icons/plus.svg" height="12" width="12"/>
+    </div>
+  </div>
+</form>
+

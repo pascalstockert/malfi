@@ -1,0 +1,81 @@
+<app-page-layout>
+  <div class="px-4 py-8">
+    <div
+      *ngFor="let intentionWithTask of intentionsWithTasks"
+      class="mb-8 p-4 bg-light-400 border border-light-300 rounded-lg"
+    >
+      <p class="mb-2">{{getReadableDateFromString(intentionWithTask.intention.start)}}</p>
+
+      <p class="font-bold">{{intentionWithTask.task.title}}</p>
+
+      <p *ngIf="intentionWithTask.intention.notes">{{intentionWithTask.intention.notes}}</p>
+
+      <div class="flex justify-between w-full mt-4">
+        <button
+          (click)="deleteIntention(intentionWithTask.intention)"
+          class="flex justify-center items-center h-8 w-8 border border-dark-500 rounded-lg duration-200 hover:bg-error hover:border-error"
+        >
+          <i-tabler
+            name="trash"
+            class="!h-6 !stroke-1 w-auto"
+          ></i-tabler>
+        </button>
+
+        <button
+          (click)="completeIntention(intentionWithTask)"
+          class="flex justify-center items-center h-8 w-8 border border-dark-500 rounded-lg duration-200 hover:bg-primary-500 hover:border-primary-500"
+        >
+          <i-tabler
+            name="check"
+            class="!h-6 !stroke-1 w-auto"
+          ></i-tabler>
+        </button>
+      </div>
+    </div>
+
+    <app-collapsible
+      *ngIf="completedIntentionsWithTasks.length"
+      title="Completed intentions"
+    >
+      <div
+        *ngFor="let intentionWithTask of completedIntentionsWithTasks"
+        class="mb-8 p-4 border border-light-300 rounded-lg"
+      >
+        <p class="mb-2">{{getReadableDateFromString(intentionWithTask.intention.start)}}</p>
+
+        <p class="font-bold">{{intentionWithTask.task.title}}</p>
+
+        <p *ngIf="intentionWithTask.intention.notes">{{intentionWithTask.intention.notes}}</p>
+
+        <div class="flex justify-end w-full mt-4">
+          <button
+            (click)="unCompleteIntention(intentionWithTask)"
+            class="flex justify-center items-center h-8 w-8 border border-dark-500 rounded-lg duration-200 hover:bg-primary-500 hover:border-primary-500"
+          >
+            <i-tabler
+              name="arrow-back-up"
+              class="!h-6 !stroke-1 w-auto"
+            ></i-tabler>
+          </button>
+        </div>
+      </div>
+    </app-collapsible>
+  </div>
+
+  <ng-container
+    ngProjectAs="[screenEnd]"
+  >
+    <div
+      class="flex justify-center items-center w-full h-24"
+    >
+      <div
+        (click)="navigateToCreation()"
+        class="flex justify-center items-center w-12 h-12 rounded-xl bg-primary-500 shadow-xl cursor-pointer"
+      >
+        <img alt="plus icon" ngSrc="/assets/icons/plus.svg" height="22" width="22"/>
+      </div>
+    </div>
+
+    <app-navigation></app-navigation>
+  </ng-container>
+</app-page-layout>

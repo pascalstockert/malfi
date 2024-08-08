@@ -1,0 +1,17 @@
+<div class="w-100 px-2">
+  <div
+    (click)="toggleCollapsedState()"
+    class="flex justify-between w-100 mb-4 cursor-pointer"
+  >
+    <p class="font-bold">{{ title }}</p>
+    <i-tabler
+      name="chevron-down"
+      [class.rotate-180]="!collapsed"
+      class="duration-300"
+    ></i-tabler>
+  </div>
+
+  <div #collapsibleContainer class="w-100 h-0 duration-300 overflow-y-hidden">
+    <ng-content></ng-content>
+  </div>
+</div>

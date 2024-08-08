@@ -6,6 +6,14 @@ import { LoggedOutGuard } from './guards/logged-out/logged-out.guard';
 import { LoggedInGuard } from './guards/logged-in/logged-in.guard';
 import { CreateTaskPageComponent } from './routes/task-page/create-task-page/create-task-page.component';
 import { TaskPageRouterComponent } from './routes/task-page/task-page-router/task-page-router.component';
+import {
+  IntentionPageRouterComponent
+} from './routes/intention-page/intention-page-router/intention-page-router.component';
+import { IntentionPageComponent } from './routes/intention-page/intention-page.component';
+import {
+  CreateIntentionPageComponent
+} from './routes/intention-page/create-intention-page/create-intention-page.component';
+import { CalendarPageComponent } from './routes/calendar-page/calendar-page.component';
 
 export const routes: Routes = [
   {
@@ -42,5 +50,29 @@ export const routes: Routes = [
         component: CreateTaskPageComponent,
       }
     ]
+  },
+  {
+    path: 'intention',
+    component: IntentionPageRouterComponent,
+    canActivate: [LoggedInGuard],
+    children: [
+      {
+        title: 'Intentions',
+        path: '',
+        pathMatch: 'full',
+        component: IntentionPageComponent,
+      },
+      {
+        title: 'Intentions | Create',
+        path: 'create',
+        component: CreateIntentionPageComponent,
+      }
+    ]
+  },
+  {
+    title: 'Calendar',
+    path: 'calendar',
+    component: CalendarPageComponent,
+    canActivate: [LoggedInGuard],
   }
 ];

@@ -3,12 +3,12 @@ import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
-  selector: 'app-page-layout',
+  selector: 'app-intention-page-router',
   standalone: true,
   imports: [CommonModule, RouterOutlet],
-  templateUrl: './page-layout.component.html',
-  styleUrl: './page-layout.component.scss'
+  templateUrl: './intention-page-router.component.html',
+  styleUrl: './intention-page-router.component.scss'
 })
-export class PageLayoutComponent {
+export class IntentionPageRouterComponent {
 
 }
