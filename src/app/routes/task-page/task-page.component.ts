@@ -6,11 +6,13 @@ import { DbService } from '../../services/db/db.service';
 import { Goal, TableName, Task } from '../../services/db/db.types';
 import { CheckboxListComponent } from '../../components/checkbox-list/checkbox-list.component';
 import { NavigationComponent } from '../../components/navigation/navigation.component';
+import { IconsModule } from '../../modules/icons/icons.module';
+
 
 @Component({
   selector: 'app-task-page',
   standalone: true,
-  imports: [CommonModule, PageLayoutComponent, NgOptimizedImage, CheckboxListComponent, NavigationComponent],
+  imports: [CommonModule, PageLayoutComponent, NgOptimizedImage, CheckboxListComponent, NavigationComponent, IconsModule],
   templateUrl: './task-page.component.html',
   styleUrl: './task-page.component.scss'
 })
@@ -52,8 +54,13 @@ export class TaskPageComponent implements OnInit {
     });
   }
 
-  mapTasksToCheckboxListArray(tasks: Task[]): string[] {
-    return tasks.map(task => task.title);
+  public async deleteGoalWithTasks(goal: Goal): Promise<void> {
+    if (confirm('Are you sure you want to delete this intention?')) {
+      await this.dbService.deleteById(TableName.GOALS, goal.id);
+
+      this.isLoading = true;
+      await this.ngOnInit();
+    }
   }
 
   public async navigateToCreation(): Promise<void> {

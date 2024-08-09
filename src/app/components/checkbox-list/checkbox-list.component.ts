@@ -8,6 +8,7 @@ import {
   FormGroup, NG_VALUE_ACCESSOR,
   ReactiveFormsModule
 } from '@angular/forms';
+import { Task } from '../../services/db/db.types';
 
 @Component({
   selector: 'app-checkbox-list',
@@ -24,7 +25,7 @@ import {
 export class CheckboxListComponent implements ControlValueAccessor, OnInit {
   @Input() enableCheckbox = false;
   @Input() readonly = false;
-  @Input() values?: string[];
+  @Input() values?: Task[];
 
   formGroup: FormGroup<{[key: string]: FormControl<string | null>}>;
   controlIndex = 0;
@@ -49,7 +50,7 @@ export class CheckboxListComponent implements ControlValueAccessor, OnInit {
 
   ngOnInit(): void {
     if (this.values) {
-      this.writeValue(this.values);
+      this.writeValue(this.values.map(value => value.title));
     }
   }
 
@@ -80,6 +81,18 @@ export class CheckboxListComponent implements ControlValueAccessor, OnInit {
 
   setDisabledState(disabled: boolean) {
     this.enableCheckbox = false;
+  }
+
+  getIndicatorColorClass(task?: Task): string {
+    if (task?.completed) {
+      return 'completed';
+    }
+
+    if (task?.completed === false && task?.has_intention) {
+      return 'intended';
+    }
+
+    return 'base';
   }
 
   getNamedControlsAsArray(): { name: string, control: AbstractControl }[] {

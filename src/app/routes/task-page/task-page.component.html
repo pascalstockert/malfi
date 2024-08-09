@@ -5,7 +5,7 @@
   >
     <div
       *ngFor="let goal of goals"
-      class="mb-8 p-4 border border-light-300 rounded-lg bg-light-400"
+      class="mb-8 p-4 border border-light-300 rounded-xl bg-light-400"
     >
       <h4 class="font-bold mb-6">{{goal.goal.title}}</h4>
 
@@ -15,8 +15,20 @@
 
       <app-checkbox-list
         [readonly]="true"
-        [values]="mapTasksToCheckboxListArray(goal.tasks)"
+        [values]="goal.tasks"
       ></app-checkbox-list>
+
+      <div class="flex justify-between w-full mt-4">
+        <button
+          (click)="deleteGoalWithTasks(goal.goal)"
+          class="flex justify-center items-center h-8 w-8 border border-dark-500 rounded-lg duration-200 hover:bg-error hover:border-error"
+        >
+          <i-tabler
+            name="trash"
+            class="!h-6 !stroke-1 w-auto"
+          ></i-tabler>
+        </button>
+      </div>
     </div>
   </div>
 

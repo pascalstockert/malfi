@@ -5,17 +5,15 @@
   <div
     *ngFor="let control of getNamedControlsAsArray(); index as i; trackBy: trackByName"
     [ngClass]="{
-      'rounded-t-xl': i === 0,
-      'rounded-b-xl': i === controlAmount - 1 || controlAmount === 0,
+      'rounded-t-lg': i === 0,
+      'rounded-b-lg': i === controlAmount - 1 || controlAmount === 0,
       '-mt-px': i > 0,
     }"
-    class="flex w-full px-3 border border-dark-500"
+    class="flex items-center w-full px-3 border border-dark-500"
   >
-    <input
-      [disabled]="!enableCheckbox || readonly"
-      [readonly]="readonly"
-      type="checkbox"
-    >
+    <div
+      class="w-4 h-4 border rounded-sm {{getIndicatorColorClass(values?.[i])}}"
+    ></div>
 
     <input
       [id]="control.name"
