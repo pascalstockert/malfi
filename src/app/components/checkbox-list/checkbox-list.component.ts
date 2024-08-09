@@ -45,6 +45,20 @@ export class CheckboxListComponent implements ControlValueAccessor, OnInit {
           return !!value;
         });
       this.onChange(mappedValues as string[]);
+
+      // Wait for inputs to be rendered
+      setTimeout(() => {
+        Object.keys(values)
+          .forEach(controlName => {
+            const elementRef = document.getElementById(controlName);
+
+            if (!elementRef) {
+              return;
+            }
+
+            elementRef.style.height = elementRef?.scrollHeight + 'px';
+          });
+      });
     });
   }
 
@@ -133,7 +147,7 @@ export class CheckboxListComponent implements ControlValueAccessor, OnInit {
   }
 
   setFocusToPreviousElement(controlName: string): void {
-    const inputElementRefs: HTMLInputElement[] = Array.from(document.querySelectorAll('input[type=text][id*=input-]'));
+    const inputElementRefs: HTMLInputElement[] = Array.from(document.querySelectorAll('textarea[id*=input-]'));
     const controlIndex = inputElementRefs.findIndex(elementRef => elementRef.id === controlName);
     inputElementRefs.splice(controlIndex, 1);
     const elementRefToFocus = inputElementRefs[Math.max(controlIndex - 1, 0)];
@@ -160,5 +174,10 @@ export class CheckboxListComponent implements ControlValueAccessor, OnInit {
         }
         break;
     }
+  }
+
+  setTextareaSize(ref: HTMLTextAreaElement): void {
+    ref.style.height = '';
+    ref.style.height = ref.scrollHeight + 'px';
   }
 }

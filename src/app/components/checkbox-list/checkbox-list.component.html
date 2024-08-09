@@ -5,8 +5,8 @@
   <div
     *ngFor="let control of getNamedControlsAsArray(); index as i; trackBy: trackByName"
     [ngClass]="{
-      'rounded-t-lg': i === 0,
-      'rounded-b-lg': i === controlAmount - 1 || controlAmount === 0,
+      'rounded-t-xl': i === 0,
+      'rounded-b-xl': i === controlAmount - 1 || controlAmount === 0,
       '-mt-px': i > 0,
     }"
     class="flex items-center w-full px-3 border border-dark-500"
@@ -15,15 +15,16 @@
       class="w-4 h-4 border rounded-sm {{getIndicatorColorClass(values?.[i])}}"
     ></div>
 
-    <input
+    <textarea #ref
       [id]="control.name"
       [formControl]="formGroup.controls[control.name]"
       [readonly]="readonly"
       (keydown)="handleInput(control.name, $event)"
-      type="text"
-      placeholder="New subtask"
+      (keyup)="setTextareaSize(ref)"
+      rows="1"
       style="background: transparent"
-    >
+      placeholder="New subtask"
+    ></textarea>
   </div>
 
   <div

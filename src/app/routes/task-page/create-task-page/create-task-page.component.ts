@@ -32,8 +32,6 @@ export class CreateTaskPageComponent {
       deadline: new FormControl(''),
       subtasks: new FormControl([], [Validators.required]),
     });
-
-    this.formGroup.valueChanges.subscribe(values => {console.log(values);});
   }
 
   async submit(): Promise<void> {

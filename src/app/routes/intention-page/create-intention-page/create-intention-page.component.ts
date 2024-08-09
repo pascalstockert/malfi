@@ -47,8 +47,6 @@ export class CreateIntentionPageComponent implements OnInit {
     );
 
     this.formGroup.valueChanges.subscribe(values => {
-      console.log(values);
-
       const {durationHours, durationMinutes} = values;
       if (durationMinutes > 59) {
         this.formGroup.patchValue({

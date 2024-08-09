@@ -42,8 +42,6 @@ export class DbService {
   }
 
   public async deleteById(table: TableName, id: string, column = 'id'): Promise<PostgrestSingleResponse<null>> {
-    console.log(table, id);
-
     return this.supabaseClient
       .from(table)
       .delete()
