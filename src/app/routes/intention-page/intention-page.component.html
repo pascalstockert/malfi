@@ -1,6 +1,6 @@
 <app-page-layout>
   <div
-    *ngIf="intentionsWithTasks.length; else empty"
+    *ngIf="intentionsWithTasks.length || completedIntentionsWithTasks.length; else empty"
     class="px-4 py-8"
   >
     <div
