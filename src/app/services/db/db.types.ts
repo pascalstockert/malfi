@@ -26,6 +26,7 @@ export interface Task extends BaseEntry {
   title: string;
   order: number;
   has_intention: boolean;
+  completed: boolean;
 }
 
 export interface Intention extends BaseEntry {

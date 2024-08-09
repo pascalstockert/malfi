@@ -47,8 +47,6 @@ export class IntentionPageComponent implements OnInit {
     this.completedIntentionsWithTasks = intentionsWithTasks.filter(intentionWithTask =>
       intentionWithTask.intention.completed
     );
-
-    console.log(this.intentionsWithTasks);
   }
 
   public getReadableDateFromString(dateString: string): string {
@@ -81,6 +79,7 @@ export class IntentionPageComponent implements OnInit {
 
   async completeIntention(completedIntentionWithTask: {intention: Intention, task: Task}): Promise<void> {
     await this.dbService.updateById<Intention>(TableName.INTENTIONS, completedIntentionWithTask.intention.id, {completed: true});
+    await this.dbService.updateById<Task>(TableName.TASKS, completedIntentionWithTask.intention.task, {completed: true});
 
     this.intentionsWithTasks = this.intentionsWithTasks.filter(intentionWithTask =>
       !(intentionWithTask.intention.id === completedIntentionWithTask.intention.id)
@@ -95,6 +94,7 @@ export class IntentionPageComponent implements OnInit {
 
   async unCompleteIntention(completedIntentionWithTask: {intention: Intention, task: Task}): Promise<void> {
     await this.dbService.updateById<Intention>(TableName.INTENTIONS, completedIntentionWithTask.intention.id, {completed: false});
+    await this.dbService.updateById<Task>(TableName.TASKS, completedIntentionWithTask.intention.task, {completed: false});
 
     this.completedIntentionsWithTasks = this.completedIntentionsWithTasks.filter(intentionWithTask =>
       !(intentionWithTask.intention.id === completedIntentionWithTask.intention.id)

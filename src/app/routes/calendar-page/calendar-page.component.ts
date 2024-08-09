@@ -19,6 +19,20 @@ export class CalendarPageComponent implements OnInit {
   view = CalendarView.Week;
   viewDate = new Date();
   events: CalendarEvent[] = [];
+  eventColors = {
+    past: {
+      primary: '#FBB0AC',
+      secondary: '#FC9893',
+    },
+    pending: {
+      primary: '#adebad',
+      secondary: '#a0e7a0',
+    },
+    completed: {
+      primary: '#dddddd',
+      secondary: '#c5c5c5',
+    },
+  }
 
   constructor(
     private dbService: DbService,
@@ -40,11 +54,25 @@ export class CalendarPageComponent implements OnInit {
     );
 
     this.events = this.mergeIntentionsWithTasks(sortedIntentions, taskResponse.data)
-      .map(({intention, task}) => ({
-        title: task.title,
-        start: new Date(intention.start),
-        end: new Date(intention.end),
-      }));
+      .map(({intention, task}) => {
+        let color = this.eventColors.pending;
+        const now = new Date();
+
+        if (intention.end < now.toISOString()) {
+          color = this.eventColors.past;
+        }
+
+        if (intention.completed) {
+          color = this.eventColors.completed;
+        }
+
+        return {
+          title: task.title,
+          start: new Date(intention.start),
+          end: new Date(intention.end),
+          color,
+        }
+      });
   }
 
   private mergeIntentionsWithTasks(intentions: Intention[], tasks: Task[]): {intention: Intention, task: Task}[] {

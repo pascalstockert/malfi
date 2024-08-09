@@ -69,6 +69,7 @@ export class CreateTaskPageComponent {
           user_id: user.id,
           order: index,
           has_intention: false,
+          completed: false,
         })
       );
 
