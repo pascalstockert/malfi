@@ -99,10 +99,14 @@ export class CreateIntentionPageComponent implements OnInit {
     const {user} = userResponse.data
     const {task, datetime, durationHours, durationMinutes, notes} = this.formGroup.value;
 
+    const timezoneOffset = (new Date).getTimezoneOffset();
     const startDate = new Date(datetime);
+    startDate.setMinutes(-timezoneOffset);
+
     let endDate = new Date(datetime);
     endDate = new Date(endDate.setMinutes(endDate.getMinutes() + durationMinutes));
     endDate = new Date(endDate.setHours(endDate.getHours() + durationHours));
+    endDate.setMinutes(-timezoneOffset);
 
     const result = await this.dbService.insertInto<Intention>(TableName.INTENTIONS, {
       task,
