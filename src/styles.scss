@@ -47,6 +47,18 @@
   input[type=checkbox] {
     width: initial;
   }
+
+  .cal-event-container {
+    &.completed .cal-event {
+      @apply bg-light-500 border-primary-500 text-primary-500 font-semibold;
+    }
+
+    &.past .cal-event {
+      @apply bg-light-500 border-error text-error;
+    }
+
+    &.intended .cal-event {
+      @apply bg-primary-500 border-primary-400 text-light-500;
+    }
+  }
 }
-
-
