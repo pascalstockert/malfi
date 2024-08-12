@@ -1,15 +1,27 @@
 <div
   class="flex justify-around items-center w-full h-16 bg-light-900 nav-shadow"
 >
-  <a routerLink="/task">
+  <a
+    class="relative flex items-center h-full"
+    routerLink="/task"
+  >
     <img ngSrc="/assets/icons/tasks.svg" width="50" height="50" alt="task page" />
+    <div class="absolute w-full h-1 bg-primary-500 top-0" *ngIf="currentRoute === '/task'"></div>
   </a>
 
-  <a routerLink="/intention">
+  <a
+    class="relative flex items-center h-full"
+    routerLink="/intention"
+  >
     <img ngSrc="/assets/icons/intentions.svg" width="50" height="50" alt="intention page" />
+    <div class="absolute w-full h-1 bg-primary-500 top-0" *ngIf="currentRoute === '/intention'"></div>
   </a>
 
-  <a routerLink="/calendar">
+  <a
+    class="relative flex items-center h-full"
+    routerLink="/calendar"
+  >
     <img ngSrc="/assets/icons/calendar.svg" width="50" height="50" alt="calendar page" />
+    <div class="absolute w-full h-1 bg-primary-500 top-0" *ngIf="currentRoute === '/calendar'"></div>
   </a>
 </div>

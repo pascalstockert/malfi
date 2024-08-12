@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { NavigationEnd, Router, RouterLink } from '@angular/router';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-navigation',
@@ -10,5 +11,11 @@ import { RouterLink } from '@angular/router';
   styleUrl: './navigation.component.scss'
 })
 export class NavigationComponent {
+  currentRoute;
 
+  constructor(
+    private router: Router,
+  ) {
+    this.currentRoute = router.url;
+  }
 }
