@@ -87,6 +87,10 @@ export class CreateIntentionPageComponent implements OnInit {
     });
   }
 
+  get earliestStartDate(): string {
+    return new Date().toISOString().slice(0, -8)
+  }
+
   async submit(): Promise<void> {
     this.isLoading = true;
 
