@@ -8,6 +8,7 @@ import { Intention, TableName, Task } from '../../services/db/db.types';
 import { ButtonComponent } from '../../components/button/button.component';
 import { IconsModule } from '../../modules/icons/icons.module';
 import { CollapsibleComponent } from '../../components/collapsible/collapsible.component';
+import { IcalService } from '../../services/ical/ical.service';
 
 @Component({
   selector: 'app-intention-page',
@@ -23,6 +24,7 @@ export class IntentionPageComponent implements OnInit {
   constructor(
     private router: Router,
     private dbService: DbService,
+    private icalService: IcalService,
   ) {}
 
   async ngOnInit(): Promise<void> {
@@ -64,6 +66,15 @@ export class IntentionPageComponent implements OnInit {
 
   public async navigateToCreation(): Promise<void> {
     await this.router.navigate(['/intention/create']);
+  }
+
+  public exportAllIntentions(): void {
+    const icalEvents = this.icalService.createEventsFromIntentions(this.intentionsWithTasks);
+    if (icalEvents.error || !icalEvents.value) {
+      throw Error('could not create ical events');
+    }
+
+    this.icalService.downloadEvents(icalEvents.value);
   }
 
   private mergeIntentionsWithTasks(intentions: Intention[], tasks: Task[]): {intention: Intention, task: Task}[] {

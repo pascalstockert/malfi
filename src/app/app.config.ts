@@ -6,6 +6,7 @@ import { AuthService } from './services/auth/auth.service';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { DatePipe } from '@angular/common';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -15,6 +16,7 @@ export const appConfig: ApplicationConfig = {
         registrationStrategy: 'registerWhenStable:30000'
     }),
     AuthService,
+    DatePipe,
     provideAnimations(),
     importProvidersFrom(
       CalendarModule.forRoot({

@@ -69,13 +69,23 @@
     ngProjectAs="[screenEnd]"
   >
     <div
-      class="flex justify-center items-center w-full h-24"
+      class="flex justify-center items-center gap-4 w-full h-24"
     >
       <div
         (click)="navigateToCreation()"
         class="flex justify-center items-center w-12 h-12 rounded-xl bg-primary-500 shadow-xl cursor-pointer"
       >
         <img alt="plus icon" ngSrc="/assets/icons/plus.svg" height="22" width="22"/>
+      </div>
+
+      <div
+        (click)="exportAllIntentions()"
+        class="flex justify-center items-center w-12 h-12 rounded-xl bg-primary-500 shadow-xl cursor-pointer"
+      >
+        <i-tabler
+          name="download"
+          class="!h-[28px] !w-[28px] !stroke-light-500"
+        ></i-tabler>
       </div>
     </div>
 

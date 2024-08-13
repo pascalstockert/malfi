@@ -9,6 +9,7 @@ import {
   IconCalendarUp,
   IconCalendarDown,
   IconCalendarDue,
+  IconDownload,
 } from 'angular-tabler-icons/icons';
 import { OptionIcons } from 'angular-tabler-icons/lib/options.interfaces';
 
@@ -21,6 +22,7 @@ const icons: OptionIcons = {
   IconCalendarUp,
   IconCalendarDown,
   IconCalendarDue,
+  IconDownload,
 };
 
 @NgModule({
