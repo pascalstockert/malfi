@@ -1,0 +1,45 @@
+<app-page-layout>
+  <router-outlet></router-outlet>
+
+  <div
+    ngProjectAs="[screenEnd]"
+    class="w-full p-4 bg-light-500"
+  >
+    <hr
+      class="w-full max-w-64 mx-auto mb-6 px-9 text-light-100"
+    />
+
+    <div class="flex flex-col gap-4 w-full">
+      <div class="flex gap-4 w-full">
+        <app-button
+          *ngIf="onboardingService.getIndexForRoute(route) > 0"
+          [onlyIcon]="true"
+          type="passive"
+          icon="arrow-left"
+          iconStrokeClass="stroke-1"
+          (click)="onboardingService.navigate(route, 'previous')"
+        ></app-button>
+
+        <app-button
+          type="primary"
+          icon="arrow-right"
+          class="w-full"
+          (click)="onboardingService.navigate(route, 'next')"
+        >
+          Next
+        </app-button>
+      </div>
+
+      <app-button
+        type="passive"
+        icon="player-skip-forward"
+        iconStrokeClass="stroke-1"
+      >
+        Skip
+      </app-button>
+
+      <p class="text-center">{{ pagination }}</p>
+    </div>
+  </div>
+</app-page-layout>
+

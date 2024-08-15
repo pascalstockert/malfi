@@ -15,5 +15,7 @@ import { IconsModule } from '../../modules/icons/icons.module';
 export class ButtonComponent {
   @Input() type: 'primary' | 'passive' | 'destructive' | 'disabled' = 'primary';
   @Input() icon: string | undefined;
+  @Input() iconStrokeClass = 'stoke-2';
+  @Input() onlyIcon = false;
   @Input() stretch: boolean = true;
 }

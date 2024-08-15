@@ -10,6 +10,9 @@ import {
   IconCalendarDown,
   IconCalendarDue,
   IconDownload,
+  IconArrowRight,
+  IconArrowLeft,
+  IconPlayerSkipForward,
 } from 'angular-tabler-icons/icons';
 import { OptionIcons } from 'angular-tabler-icons/lib/options.interfaces';
 
@@ -19,10 +22,13 @@ const icons: OptionIcons = {
   IconTrash,
   IconChevronDown,
   IconArrowBackUp,
+  IconArrowRight,
+  IconArrowLeft,
   IconCalendarUp,
   IconCalendarDown,
   IconCalendarDue,
   IconDownload,
+  IconPlayerSkipForward,
 };
 
 @NgModule({

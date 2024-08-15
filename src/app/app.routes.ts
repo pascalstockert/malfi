@@ -14,6 +14,10 @@ import {
   CreateIntentionPageComponent
 } from './routes/intention-page/create-intention-page/create-intention-page.component';
 import { CalendarPageComponent } from './routes/calendar-page/calendar-page.component';
+import { OnboardingGuard } from './guards/onboarding/onboarding.guard';
+import { OnboardingComponent } from './routes/onboarding/onboarding.component';
+import { OnboardingStartComponent } from './routes/onboarding/onboarding-start/onboarding-start.component';
+import { onboardingRoutes } from './services/onboarding/onboarding.routes';
 
 export const routes: Routes = [
   {
@@ -25,7 +29,7 @@ export const routes: Routes = [
     title: 'Auth',
     path: 'auth',
     component: AuthPageComponent,
-    canActivate: [LoggedOutGuard],
+    canActivate: [OnboardingGuard],
     children: [
       {
         path: 'login',
@@ -74,5 +78,6 @@ export const routes: Routes = [
     path: 'calendar',
     component: CalendarPageComponent,
     canActivate: [LoggedInGuard],
-  }
+  },
+  onboardingRoutes,
 ];

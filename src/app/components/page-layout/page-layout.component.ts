@@ -10,5 +10,4 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './page-layout.component.scss'
 })
 export class PageLayoutComponent {
-
 }
