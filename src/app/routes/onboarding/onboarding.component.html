@@ -1,5 +1,7 @@
 <app-page-layout>
-  <router-outlet></router-outlet>
+  <div class="pb-[205px]">
+    <router-outlet></router-outlet>
+  </div>
 
   <div
     ngProjectAs="[screenEnd]"
@@ -24,16 +26,17 @@
           type="primary"
           icon="arrow-right"
           class="w-full"
-          (click)="onboardingService.navigate(route, 'next')"
+          (click)="!isLastRoute ? onboardingService.navigate(route, 'next') : completeOnboarding()"
         >
-          Next
+          {{ isLastRoute ? 'Finish' : 'Next' }}
         </app-button>
       </div>
 
       <app-button
-        type="passive"
+        [type]="isLastRoute ? 'disabled' : 'passive'"
         icon="player-skip-forward"
         iconStrokeClass="stroke-1"
+        (click)="!isLastRoute ? completeOnboarding() : {}"
       >
         Skip
       </app-button>

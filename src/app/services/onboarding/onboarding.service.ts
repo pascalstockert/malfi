@@ -8,7 +8,10 @@ import { Router } from '@angular/router';
 export class OnboardingService {
   routes = [
     'start',
-    'goals-tasks'
+    'goals-tasks',
+    'intentions',
+    'calendar',
+    'end',
   ];
 
   constructor(

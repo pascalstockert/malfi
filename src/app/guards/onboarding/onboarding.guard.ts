@@ -19,7 +19,6 @@ export class OnboardingGuard implements CanActivate {
       return true;
     }
 
-    console.log(userSession.user.user_metadata);
     if ('onboarded' in userSession?.user.user_metadata && userSession?.user.user_metadata['onboarded']) {
       return this.router.navigate(['/task']);
     }

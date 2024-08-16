@@ -26,6 +26,12 @@ export class AuthService {
     return this.supabaseClient.auth.getUser();
   }
 
+  public async updateUserMeta(data: object): Promise<UserResponse> {
+    return await this.supabaseClient.auth.updateUser({
+      data,
+    });
+  }
+
   public async signInWithGoogle(): Promise<OAuthResponse> {
     return this.supabaseClient.auth.signInWithOAuth({
       provider: 'google',
