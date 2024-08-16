@@ -2,13 +2,22 @@
   class="relative max-w-[512px] mx-auto"
 >
   <div
-    class="flex justify-center items-center sticky top-0 w-full h-[84px] bg-light-500 shadow-lg z-10"
+    class="relative flex justify-center items-center sticky top-0 w-full h-[84px] bg-light-500 shadow-lg z-10"
   >
     <h1
       class="mb-0 text-primary-500"
     >
       MALFI
     </h1>
+
+    <app-button
+      [onlyIcon]="true"
+      type="passive"
+      icon="logout"
+      iconStrokeClass="stroke-1"
+      class="absolute top-1/2 right-4 -translate-y-1/2"
+      (click)="signOut()"
+    ></app-button>
   </div>
 
   <div>
