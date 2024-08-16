@@ -13,11 +13,13 @@ import { AuthService } from '../../services/auth/auth.service';
 })
 export class PageLayoutComponent {
   constructor(
+    public router: Router,
     private authService: AuthService,
-    private router: Router,
-  ) {}
+  ) {
+  }
 
   public async signOut(): Promise<void> {
+    console.log(this.router.url);
     await this.authService.signOut();
     await this.router.navigate(['/auth/login']);
   }

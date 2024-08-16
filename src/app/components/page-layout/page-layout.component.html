@@ -11,6 +11,7 @@
     </h1>
 
     <app-button
+      *ngIf="router.url !== '/auth/login'"
       [onlyIcon]="true"
       type="passive"
       icon="logout"
