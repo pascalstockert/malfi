@@ -30,20 +30,18 @@
         </button>
       </div>
     </div>
+
+    <div class="w-full h-28"></div>
   </div>
 
   <ng-container
     ngProjectAs="[screenEnd]"
   >
     <div
-      class="flex justify-center items-center w-full h-24"
+      (click)="navigateToCreation()"
+      class="fixed bottom-24 left-1/2 -translate-x-1/2 flex justify-center items-center w-12 h-12 rounded-xl bg-primary-500 shadow-xl cursor-pointer"
     >
-      <div
-        (click)="navigateToCreation()"
-        class="flex justify-center items-center w-12 h-12 rounded-xl bg-primary-500 shadow-xl cursor-pointer"
-      >
-        <img alt="plus icon" ngSrc="/assets/icons/plus.svg" height="22" width="22"/>
-      </div>
+      <img alt="plus icon" ngSrc="/assets/icons/plus.svg" height="22" width="22"/>
     </div>
 
     <app-navigation></app-navigation>

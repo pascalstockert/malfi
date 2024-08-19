@@ -55,7 +55,7 @@ export class TaskPageComponent implements OnInit {
   }
 
   public async deleteGoalWithTasks(goal: Goal): Promise<void> {
-    if (confirm('Are you sure you want to delete this intention?')) {
+    if (confirm('Are you sure you want to delete this goal? All linked subtasks will be deleted as well.')) {
       await this.dbService.deleteById(TableName.GOALS, goal.id);
 
       this.isLoading = true;
