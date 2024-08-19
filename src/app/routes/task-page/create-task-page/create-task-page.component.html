@@ -26,6 +26,7 @@
 
       <label>Deadline
         <input
+          [min]="earliestStartDate"
           formControlName="deadline"
           type="date"
           placeholder="20.09.1998"

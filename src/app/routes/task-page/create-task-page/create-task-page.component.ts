@@ -81,4 +81,8 @@ export class CreateTaskPageComponent {
   async navigateToTasks(): Promise<boolean> {
     return this.router.navigate(['/task']);
   }
+
+  get earliestStartDate(): string {
+    return new Date().toISOString().split('T')[0];
+  }
 }

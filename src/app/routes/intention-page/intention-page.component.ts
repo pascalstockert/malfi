@@ -51,6 +51,8 @@ export class IntentionPageComponent implements OnInit {
     );
   }
 
+
+
   public getReadableDateFromString(dateString: string): string {
     const date = new Date(dateString);
     const [day, month, year, hours, minutes] = [
