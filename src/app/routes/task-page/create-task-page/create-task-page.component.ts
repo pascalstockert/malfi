@@ -28,7 +28,7 @@ export class CreateTaskPageComponent {
   ) {
     this.formGroup = this.formBuilder.group({
       title: new FormControl('', [Validators.required]),
-      description: new FormControl('', [Validators.required]),
+      description: new FormControl(''),
       deadline: new FormControl(''),
       subtasks: new FormControl([], [Validators.required]),
     });

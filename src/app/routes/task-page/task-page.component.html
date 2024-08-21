@@ -7,9 +7,12 @@
       *ngFor="let goal of goals"
       class="mb-8 p-4 border border-light-300 rounded-xl bg-light-400"
     >
-      <h4 class="font-bold mb-6">{{goal.goal.title}}</h4>
+      <h4 class="font-bold mb-2">{{goal.goal.title}}</h4>
 
-      <p class="mb-6">{{goal.goal.description}}</p>
+      <p
+        *ngIf="goal.goal.description"
+        class="mb-6"
+      >{{goal.goal.description}}</p>
 
       <p class="mb-2">Subtasks</p>
 
